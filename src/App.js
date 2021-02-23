@@ -13,10 +13,14 @@ class App extends React.Component {
     this.removeHero = this.removeHero.bind(this)
   }
 
+ const generateId = () => {
+    return Math.floor(Math.random() * 100);
+  }
+
   // Add function Add new Hero entity
   addHero(){
     const { data, entry } = this.state
-    const id = Math.floor(Math.random() * 100);
+    const id = generateId()
     const newHeroData = [...data, { id, heroName: entry} ]
     this.setState({ data: newHeroData})
   }
