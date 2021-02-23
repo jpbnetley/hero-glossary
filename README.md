@@ -1,5 +1,4 @@
 # hero-glossary
-
 This application displays a list of super-heroes.
 We will be adding functionality for adding/removing super heroes.
 
@@ -10,6 +9,10 @@ Topics we will touch on:
 * Functions
 * Passing Functions as props to Components
 
+### Setup
+In the root directory run `npm i` then `npm run start` in order to run the project (Should open up in your web browser).
+
+### Data
 The structure of the data is as follows:
 
 ``` javascript
