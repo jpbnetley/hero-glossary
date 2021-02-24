@@ -60,9 +60,9 @@ class App extends React.Component {
 
         <label for="hname">Hero name</label>
         <input id="hname" type="text"></input>
-        <input type="button" onClick={this.handleEntryInput}>
+        <button type="button" onClick={this.handleEntryInput}>
           Add Hero
-        </input>
+        </button>
         <HeroList data={data} handleHeroRemove={this.removeHero} />
       </div>
     );
