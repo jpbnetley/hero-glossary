@@ -1,5 +1,4 @@
 import React from 'react'
-
 class HeroList extends React.Component {
   render() {
     const { data, handleHeroRemove } = this.props;
@@ -12,5 +11,5 @@ class HeroList extends React.Component {
   }
 }
 
-export default HeroList in HeroList.js
+export default HeroList;
     
