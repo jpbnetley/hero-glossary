@@ -42,11 +42,11 @@ class App extends React.Component {
   }
 
   removeHero(id) {
-    let {data} = this.state
-    let updated = data.filter(hero => hero.id === id)
+    let { data } = this.state;
+    let updated = data.filter((hero) => hero.id === id);
     this.setState({
-      data: updated
-    })
+      data: updated,
+    });
   }
 
   render() {
