@@ -10,14 +10,12 @@ class App extends React.Component {
       data: heroDB,
       entry: "",
     };
+    this.removeHero = this.removeHero.bind(this);
   }
 
-  handleEntryInput() {
-    let { data } = this.state;
-    let heroName = document.querySelector("#hname").value;
+  handleEntryInput(e) {
     this.setState({
-      data: data,
-      entry: heroName,
+      entry: e.target.value,
     });
   }
 
@@ -28,6 +26,7 @@ class App extends React.Component {
   }
 
   addHero() {
+    console.log("adding hero")
     let id = this.generateId();
     let { data, entry } = this.state;
     let updatedHeros = data.concat({
@@ -37,13 +36,12 @@ class App extends React.Component {
 
     this.setState({
       data: updatedHeros,
-      entry: null,
     });
   }
 
   removeHero(id) {
     let { data } = this.state;
-    let updated = data.filter((hero) => hero.id === id);
+    let updated = data.filter((hero) => hero.id !== id);
     this.setState({
       data: updated,
     });
@@ -56,14 +54,18 @@ class App extends React.Component {
       <div className="App">
         <header className="App-header">
           <div id="app"></div>
-        </header>
 
-        <label for="hname">Hero name</label>
-        <input id="hname" type="text"></input>
-        <button type="button" onClick={this.handleEntryInput}>
-          Add Hero
-        </button>
-        <HeroList data={data} handleHeroRemove={this.removeHero} />
+          <label>Hero name</label>
+          <input
+            id="hname"
+            type="text"
+            onChange={(e) => this.handleEntryInput(e)}
+          ></input>
+          <button 
+          type="button"
+          onClick={() => this.addHero()}>Add Hero</button>
+          <HeroList data={data} handleHeroRemove={this.removeHero} />
+        </header>
       </div>
     );
   }

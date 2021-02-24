@@ -4,11 +4,12 @@ class HeroList extends React.Component {
     const { data, handleHeroRemove } = this.props;
     
     return (
-        data.map((hero, id) => (
-            <p onClick={handleHeroRemove(id)}>{hero}</p>
+        data.map(({heroName, id}) => (
+            <p key={id} onClick={() => handleHeroRemove(id)}>{heroName}</p>
           ))
     );
   }
 }
 
 export default HeroList;
+    
