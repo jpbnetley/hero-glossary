@@ -12,4 +12,3 @@ class HeroList extends React.Component {
 }
 
 export default HeroList;
-    
