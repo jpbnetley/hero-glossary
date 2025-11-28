@@ -1,10 +1,20 @@
 import './App.css';
-import React from 'react'
+import { ChangeEvent, Component } from 'react'
 import HeroList from './components/HeroList'
 import { heroDB } from './data';
 
-class App extends React.Component {
-  constructor(props) {
+export type AppState = {
+  data: {
+    heroName: string;
+    id: number;
+  }[];
+  entry: string;
+}
+
+export type AppProps = {};
+
+class App extends Component<AppProps, AppState> {
+  constructor(props: AppProps) {
     super(props);
     this.state = {
       data: heroDB,
@@ -13,7 +23,7 @@ class App extends React.Component {
     this.removeHero = this.removeHero.bind(this);
   }
 
-  handleEntryInput(e) {
+  handleEntryInput(e: ChangeEvent<HTMLInputElement>) {
     this.setState({
       entry: e.target.value,
     });
@@ -22,7 +32,7 @@ class App extends React.Component {
   generateId() {
     let random = Math.random();
     let twoDes = random * 100;
-    return Math.round(twoDes, 0);
+    return Math.round(twoDes);
   }
 
   addHero() {
@@ -39,7 +49,7 @@ class App extends React.Component {
     });
   }
 
-  removeHero(id) {
+  removeHero(id: number) {
     let { data } = this.state;
     let updated = data.filter((hero) => hero.id !== id);
     this.setState({
@@ -55,7 +65,7 @@ class App extends React.Component {
         <header className="App-header">
           <div id="app"></div>
 
-          <label>Hero name</label>
+          <label htmlFor='hname'>Hero name</label>
           <input
             id="hname"
             type="text"

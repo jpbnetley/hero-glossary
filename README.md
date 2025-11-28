@@ -2,15 +2,29 @@
 This application displays a list of super-heroes.
 We will be adding functionality for adding/removing super heroes.
 
-This is a small project for practicing React:
+This is a small project for practising React:
 Topics we will touch on: 
 * Class Components
 * Event handling
 * Functions
 * Passing Functions as props to Components
 
+## Migrated to Vite
+
+This project now uses [Vite](https://vitejs.dev/) for development and builds.
+
 ### Setup
-In the root directory run `npm i` then `npm run start` in order to run the project (Should open up in your web browser).
+In the root directory run `pnpm install` then `pnpm run dev` to start the development server.
+
+To build for production:
+```sh
+pnpm run build
+```
+
+To preview the production build:
+```sh
+pnpm run preview
+```
 
 ### Data
 The structure of the data is as follows:
